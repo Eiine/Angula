@@ -4,5 +4,5 @@ boton.addEventListener("click", () => {
   console.log("hola mundo");
   audio.play();
   console.log(navigator.vibrate);
-  window.navigator.vibrate(1000);
+  window.navigator.vibrate();
 });
