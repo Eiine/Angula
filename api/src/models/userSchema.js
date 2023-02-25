@@ -1,25 +1,23 @@
-import mongoose from "mongoose"
-//import passportLocalMongoose from "passport-local-mongoose"
-
+import mongoose, { Types } from "mongoose";
+import mongooseBcrypt from "mongoose-bcrypt";
 
 const userSchema = mongoose.Schema({
   name: {
     type: String,
     required: true,
   },
+  online: Boolean,
   email: {
     type: String,
     required: true,
   },
-  password: {
-    type: String,
-    required: true,
-  },
-  id_classroom: {
-    type: String,
-    required: false,
-  }
-})
+  id_classroom: [
+    {
+      name: String,
+      _id: Types.ObjectId,
+    },
+  ],
+});
 
-//userSchema.plugin(passportLocalMongoose)
-export default mongoose.model("user", userSchema)
+userSchema.plugin(mongooseBcrypt); //Agregará un campo encriptado de nombre "password" [a la BD] y además una serie de mètodos.
+export default mongoose.model("userSchema", userSchema);
