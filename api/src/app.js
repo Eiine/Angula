@@ -15,7 +15,7 @@ const port = 3000;
 const server = http.createServer(app);
 const io = new SocketIO(server, {
   cors: {
-    origin: "http://localhost:4200",
+    origin: "https://s6-09-t-angular.vercel.app/",
     methods: ["GET", "POST"]
   }
 })
