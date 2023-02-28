@@ -17,13 +17,10 @@ const classSchema = mongoose.Schema(
       type: String,
       required: false,
     },
-<<<<<<< HEAD
     aula: {
       type: String,
       required: false,
     },
-=======
->>>>>>> 327078374f4899d58c8dfbefee3b4b88897c2c48
     users: [
       {
         type: String,
@@ -32,14 +29,8 @@ const classSchema = mongoose.Schema(
     ],
     other: [
       {
-<<<<<<< HEAD
         user: String,
         message: {
-=======
-        user:String,
-        message: {
-          
->>>>>>> 327078374f4899d58c8dfbefee3b4b88897c2c48
           type: String,
           required: false,
         },

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import jwt from "jsonwebtoken";
-=======
-import jwt from 'jsonwebtoken';
->>>>>>> 327078374f4899d58c8dfbefee3b4b88897c2c48
 
 function generateToken(user) {
   if (user) {
@@ -22,7 +18,6 @@ function generateToken(user) {
   }
 }
 
-<<<<<<< HEAD
 const resetPasswordToken = (user) => {
   if (user) {
     let token = jwt.sign(
@@ -39,6 +34,3 @@ const resetPasswordToken = (user) => {
 };
 
 export { resetPasswordToken, generateToken };
-=======
-export { generateToken };
->>>>>>> 327078374f4899d58c8dfbefee3b4b88897c2c48

@@ -1,10 +1,6 @@
 import classSchema from "../models/classSchema.js";
 import userSchema from "../models/userSchema.js";
-<<<<<<< HEAD
 import { enviar } from "../helpers/email.js";
-=======
-import {enviar} from "../helpers/email.js"
->>>>>>> 327078374f4899d58c8dfbefee3b4b88897c2c48
 const createClassRoom = async (req, res) => {
   try {
     const user = classSchema(req.body);
@@ -49,7 +45,6 @@ const deleteClassRoom = async (req, res) => {
 };
 
 const updateClassRoom = async (req, res) => {
-<<<<<<< HEAD
   try {
     const { id } = req.params;
     const { idUser } = req.body;
@@ -61,27 +56,12 @@ const updateClassRoom = async (req, res) => {
     );
     let user = await userSchema.findOne({ _id: idUser });
     enviar(user, "invitacion");
-=======
-   
-  try {
-    const { id } = req.params;
-    const {idUser}=req.body
-    const clase= await classSchema.findByIdAndUpdate(
-      {
-        _id: id,
-      },
-      { $push: { users: idUser} }
-    );
-    let user=await userSchema.findOne({_id:idUser})
-    enviar(user,"invitacion")
->>>>>>> 327078374f4899d58c8dfbefee3b4b88897c2c48
     res.send({ message: "usuario invitado", valid: true });
   } catch (error) {
     console.log(error.message);
   }
 };
 
-<<<<<<< HEAD
 const addUser = async (req, res) => {
   let { user } = req.body;
   let { id } = req.params;
@@ -129,9 +109,6 @@ const deleteUser = async (req, res) => {
 export {
   deleteUser,
   addUser,
-=======
-export {
->>>>>>> 327078374f4899d58c8dfbefee3b4b88897c2c48
   createClassRoom,
   getClassRoom,
   getallClassRoom,

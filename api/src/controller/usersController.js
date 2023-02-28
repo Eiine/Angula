@@ -6,19 +6,11 @@ import { query } from "express";
 //Crear usuario
 const createUser = async (req, res) => {
   let { name, password, email } = req.body;
-<<<<<<< HEAD
   let nameMin = name.toLowerCase();
   let passwordMin = password.toLowerCase();
   let emailMin = email.toLowerCase();
 
   console.log(nameMin, passwordMin, emailMin);
-=======
-  let nameMin=name.toLowerCase()
-  let passwordMin=password.toLowerCase()
-  let emailMin=email.toLowerCase()
-
-  console.log(nameMin,passwordMin, emailMin);
->>>>>>> 327078374f4899d58c8dfbefee3b4b88897c2c48
   try {
     let userExist = await userSchema.findOne({ email });
     //comprobando email para no repetir en base de datos
@@ -29,15 +21,11 @@ const createUser = async (req, res) => {
       });
     }
     //creacion del usuario
-<<<<<<< HEAD
     let userSave = new userSchema({
       name: nameMin,
       password: passwordMin,
       email: emailMin,
     });
-=======
-    let userSave = new userSchema({ name:nameMin, password:passwordMin, email:emailMin });
->>>>>>> 327078374f4899d58c8dfbefee3b4b88897c2c48
     userSave.save();
     userSave = userSave.toObject();
     delete userSave.password;
@@ -47,11 +35,7 @@ const createUser = async (req, res) => {
       user: userSave,
       jwt: token,
     };
-<<<<<<< HEAD
     //correo de bienvenida
-=======
-    //correo de viendvenida
->>>>>>> 327078374f4899d58c8dfbefee3b4b88897c2c48
     enviar(userSave, "bienvenida");
     res.send({
       user: userData,
