@@ -1,0 +1,67 @@
+<div class="container contenedor">
+<div class="left float-start"><a href="#"><i class="bi bi-arrow-left text-primary" style="font-size: 2rem"></i></a></div>
+<div class="center"><h1 class="text-primary">Mensajes</h1></div>
+<div class="right float-end"><i class="bi bi-arrow-right" style="font-size: 2rem"></i></div>
+</div>
+<br>
+<div class="container mb-5">
+    <h3 class="text-primary">Miembros</h3>
+    <br>
+    <div class= "horizontal-scrollable">
+            <div class="userP">
+            <img src="assets/img/user-icon.jpg" class="img-fluid imgRedonda" alt="usuario">
+            <p class="text-primary">Usuario</p>
+            </div>
+            <div class="userP">
+            <img src="assets/img/user-icon.jpg" class="img-fluid imgRedonda" alt="usuario">
+            <p class="text-primary">Usuario</p>
+            </div>
+            <div class="userP">
+            <img src="assets/img/user-icon.jpg" class="img-fluid imgRedonda" alt="usuario">
+            <p class="text-primary">Usuario</p>
+            </div>
+            <div class="userP">
+            <img src="assets/img/user-icon.jpg" class="img-fluid imgRedonda" alt="usuario">
+            <p class="text-primary">Usuario</p>
+            </div>
+            <div class="userP">
+            <img src="assets/img/user-icon.jpg" class="img-fluid imgRedonda" alt="usuario">
+            <p class="text-primary">Usuario</p>
+            </div>
+            <div class="userP">
+            <img src="assets/img/user-icon.jpg" class="img-fluid imgRedonda" alt="usuario">
+            <p class="text-primary">Usuario</p>
+            </div>
+    </div>
+
+    <div class="row mx-auto">
+        <div class="col-12 chatDiv bg-white rounded shadow">
+            <div id="chat-mensajes">
+                <li class="list-group-item border border-1 border-primary rounded mt-3 p-2">
+                    Mensaje...
+                </li>
+            </div>
+        </div>
+        
+        <div class="col-12 bg-white shadow mt-1 msgEnvio">
+            <form autocomplete="off"
+              [formGroup]="miFormulario"
+              (ngSubmit)="enviar()">
+            <input type="text" class="form-control py-3 text-primary" 
+            formControlName="mensaje"
+            placeholder="Escribe algo..."
+            autofocus
+            autocomplete="off">
+            <div  class="icon-chat">
+                <a href=""><i class="bi bi-ear ms-2" style="font-size: 2rem"></i></a>
+                <a type="submit"><i class="bi bi-caret-right ms-2" style="font-size: 2rem"></i></a>
+            </div>
+        </form>
+        </div>
+        
+    </div>
+    
+    
+
+
+</div>
