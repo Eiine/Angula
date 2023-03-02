@@ -16,10 +16,7 @@ const getClassRoom = async (req, res) => {
     const { id } = req.params;
     console.log(id);
     let user = await classSchema.find({ _id: id });
-<<<<<<< HEAD
     console.log(user);
-=======
->>>>>>> 9989f2e5c3c9cc8753e394df140c92d7086d88e5
     res.send(user);
   } catch (error) {
     console.log(error.message);
