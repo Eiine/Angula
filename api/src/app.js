@@ -9,16 +9,15 @@ import connectdb from "./config/db.js";
 import cors from "cors"; //enable cors
 import jwtMiddleware from "express-jwt";
 
-
 const app = express();
-const port = 3000;
+const port = 3001;
 const server = http.createServer(app);
 const io = new SocketIO(server, {
-  cors: {   
-    origin: "https://s6-09-t-angular.vercel.app",
-    methods: ["GET", "POST"]
-  }
-})
+  cors: {
+    origin: "http://localhost:4200",//"https://s6-09-t-angular.vercel.app/", ,
+    methods: ["GET", "POST"],
+  },
+});
 
 //configuracion de archivos staticos
 app.use(express.static("./src/public"));
