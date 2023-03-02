@@ -1,5 +1,4 @@
 import { saveInBd } from "../helpers/saveInBd.js";
-import {changeStatus} from "../helpers/changeStatus.js"
 export const coneccionSocket = (io, app) => {
   //configuracion de coneccion
   let connectedUsers = [];
@@ -8,6 +7,9 @@ export const coneccionSocket = (io, app) => {
     console.log("Se conecto el usuario" + " " + socket.id);
     connectedUsers.push(socket.id);
 
+    socket.on("hola", (user) => {
+      console.log(user);
+    });
     //recepcion para gurdado en bd
     socket.on("message", (message) => {
       console.log(message);
@@ -20,19 +22,13 @@ export const coneccionSocket = (io, app) => {
     socket.on("chat", (user) => {
       io.emit("mensaje", user); //para emitir a todos los que estan a la escucha es necesario usar io
     });
-     let usuario=[]
-    socket.on("hola", (obj)=>{
-      console.log(obj);
-      
-      // hola["ids"]=socket.id
-      usuario.push(obj.id)
-      
-    })
-    socket.on("disconnect", () => {
+
+    socket.on("disconnect", (user) => {
+      console.log(user);
       console.log("El usuario se desconecto");
-      console.log(usuario[0]);
-      changeStatus(usuario[0])
-      // agregar funcion de cambio estatus online
+      connectedUsers = connectedUsers.filter((userId) => userId !== socket.id);
+      // enviar la lista de usuarios conectados actualizada a todos los clientes
+      io.emit("usuarios-conectados", connectedUsers);
     });
 
     io.emit("usuarios-conectados", connectedUsers);
