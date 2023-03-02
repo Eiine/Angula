@@ -24,14 +24,14 @@ app.get("/:id", rulesUserupdate, validationGeneral, getUser);
 app.patch("/:id", updateUser);
 //Update usuario
 app.delete("/:id", rulesUserupdate, validationGeneral, deleteUser);
-//recuperacion de contraseña
-app.post("/passworReset", passworReset);
+
 
 
 
 export default app;
 
-
+//recuperacion de contraseña
+app.post("/passworReset", passworReset);
 
 
 
